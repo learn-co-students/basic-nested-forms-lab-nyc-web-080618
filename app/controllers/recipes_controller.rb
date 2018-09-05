@@ -15,11 +15,12 @@ class RecipesController < ApplicationController
   end
 
   def create
+  #  byebug
     Recipe.create(recipe_params)
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, ingredients_attributes: [:id, :name, :quantity])
+    params.require(:recipe).permit(:title, ingredients_attributes: [:name, :quantity])
   end
 
 end
